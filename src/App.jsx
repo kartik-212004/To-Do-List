@@ -2,7 +2,7 @@ import { useState } from "react";
 import todo from "./assets/calendar.png"
 import dustbin from "./assets/delete.png"
 export default function App() {
-  const [sport, useSport] = useState(["apple"]);
+  const [sport, useSport] = useState([]);
   let c = 0;
   function add() {
     let value = document.getElementById("input").value;
@@ -13,7 +13,12 @@ export default function App() {
   function remove(index) {
     useSport(sport.filter((_, i) => (i != index)))
   }
-
+  function hide() {
+    let change = document.getElementById("input").value;
+    if (change.length > 0) {
+      document.getElementById("hide").style.display = "none";
+    }
+  }
 
   return (
     <>
@@ -35,9 +40,10 @@ export default function App() {
             </div>
             <div>
               <div className="add flex justify-center container mt-12 sm:w-full w-96 ">
-                <input id="input" type="text" className="w-[200px] h-12 relative top-0 sm:w-[450px] placeholder:pl-3 sm:placeholder:text-2xl placeholder:text-gray-500 outline-none sm:h-20 rounded-full pl-12 sm:text-2xl  bg-slate-100 pr-[6.5rem]" placeholder="Add Your Text" />
+                <input onChange={hide} id="input" type="text" className="w-[200px] h-12 relative top-0 sm:w-[450px] placeholder:pl-3 sm:placeholder:text-2xl placeholder:text-gray-500 outline-none sm:h-20 rounded-full pl-12 sm:text-2xl  bg-slate-100 pr-[6.5rem]" placeholder="Add Your Text" />
                 <button onClick={add} type="submit" className="sm:text-2xl h-12 w-20 text-white top-0 sm:font-medium drop-shadow-2xl sm:h-20 sm:w-44 bg-orange-500 rounded-full">Add +</button>
               </div>
+              <div id="hide" className="mt-6 addlist text-zinc-500 sm:text-5xl text-3xl font-medium text-center">Add Your To-do</div>
               <div className="listbox  w-full mt-10">
                 <ul className="list-decimal">
                   {
