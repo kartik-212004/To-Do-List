@@ -18,4 +18,4 @@ This is a simple To-Do List application built using React. It allows users to ad
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/todo-list.git
+   git clone git@github.com:kartik-212004/To-Do-list.git
